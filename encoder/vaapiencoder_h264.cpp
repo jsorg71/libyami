@@ -1040,8 +1040,10 @@ void VaapiEncoderH264::resetParams ()
 
     m_keyPeriod = intraPeriod() * (m_videoParamAVC.idrInterval + 1);
 
+#if 0
     if (m_keyPeriod > MAX_IDR_PERIOD)
         m_keyPeriod = MAX_IDR_PERIOD;
+#endif
 
     if (initQP() < minQP())
         initQP() = minQP();
