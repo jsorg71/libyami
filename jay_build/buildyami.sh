@@ -12,15 +12,33 @@ export NOCONFIGURE=1
 rm -r $INSTALL_PATH/*
 
 rm -f libdrm-2.4.74.tar.gz
-wget https://dri.freedesktop.org/libdrm/libdrm-2.4.74.tar.gz
+#wget https://dri.freedesktop.org/libdrm/libdrm-2.4.74.tar.gz
+wget http://server1.xrdp.org/yami/libdrm-2.4.74.tar.gz
+if test $? -ne 0
+then
+  echo "error downloading libdrm-2.4.74.tar.gz"
+  exit 1
+fi
 
 rm -f libva-1.7.3.tar.bz2
 rm -f libva-1.7.3.tar
-wget https://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
+#wget https://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
+wget http://server1.xrdp.org/yami/libva-1.7.3.tar.bz2
+if test $? -ne 0
+then
+  echo "error downloading libva-1.7.3.tar.bz2"
+  exit 1
+fi
 
 rm -f libva-intel-driver-1.7.3.tar.bz2
 rm -f libva-intel-driver-1.7.3.tar
-wget https://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/libva-intel-driver-1.7.3.tar.bz2
+#wget https://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/libva-intel-driver-1.7.3.tar.bz2
+wget http://server1.xrdp.org/yami/libva-intel-driver-1.7.3.tar.bz2
+if test $? -ne 0
+then
+  echo "error downloading libva-intel-driver-1.7.3.tar.bz2"
+  exit 1
+fi
 
 rm -fr libdrm-2.4.74
 tar -zxf libdrm-2.4.74.tar.gz
