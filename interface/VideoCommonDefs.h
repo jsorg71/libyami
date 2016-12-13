@@ -49,7 +49,7 @@ extern "C" {
 
 #ifndef __cplusplus
 #ifndef bool
-#define bool  int
+#define bool  char
 #endif
 
 #ifndef true
