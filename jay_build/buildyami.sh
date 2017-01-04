@@ -68,10 +68,11 @@ cd ..
 
 rm -rf libyami
 git clone https://github.com/jsorg71/libyami.git
+#git clone https://github.com/lizhong1008/libyami.git
 cd libyami
 git checkout infinte_gop
-#git checkout infinte_gop
-git checkout fa3865a3406f9f21b729d5b6d46536a7e70eb391
+#git checkout apache
+#git checkout fa3865a3406f9f21b729d5b6d46536a7e70eb391
 ./autogen.sh
 ./configure --prefix=$INSTALL_PATH $LIBYAMI_CONFIG
 make
