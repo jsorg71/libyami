@@ -1,10 +1,10 @@
 #!/bin/sh
 
 INSTALL_PATH=/opt/yami
-LIBDRM_CONFIG=
-LIBVA_CONFIG=--disable-x11
+LIBDRM_CONFIG="--disable-radeon --disable-amdgpu --disable-nouveau --disable-vmwgfx --disable-libkms"
+LIBVA_CONFIG="--disable-x11 --disable-wayland"
 LIBVA_INTER_DRIVER_CONFIG=
-LIBYAMI_CONFIG=--disable-x11
+LIBYAMI_CONFIG="--disable-x11"
 
 export PKG_CONFIG_PATH=$INSTALL_PATH/lib/pkgconfig
 export NOCONFIGURE=1
@@ -45,7 +45,7 @@ tar -zxf libdrm-2.4.74.tar.gz
 cd libdrm-2.4.74
 ./configure --prefix=$INSTALL_PATH $LIBDRM_CONFIG
 make
-make install
+make install-strip
 cd ..
 
 rm -fr libva-1.7.3
@@ -54,7 +54,7 @@ tar -xf libva-1.7.3.tar
 cd libva-1.7.3
 ./configure --prefix=$INSTALL_PATH $LIBVA_CONFIG
 make
-make install
+make install-strip
 cd ..
 
 rm -rf libva-intel-driver-1.7.3
@@ -63,7 +63,7 @@ tar -xf libva-intel-driver-1.7.3.tar
 cd libva-intel-driver-1.7.3
 ./configure --prefix=$INSTALL_PATH $LIBVA_INTER_DRIVER_CONFIG
 make
-make install
+make install-strip
 cd ..
 
 rm -rf libyami
@@ -78,7 +78,7 @@ git checkout 1.1.0
 ./autogen.sh
 ./configure --prefix=$INSTALL_PATH $LIBYAMI_CONFIG
 make
-make install
+make install-strip
 cd ..
 
 make clean
