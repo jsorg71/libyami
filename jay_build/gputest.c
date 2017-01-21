@@ -260,7 +260,7 @@ int main(int argc, char** argv)
 
         encVideoParams.rcParams.initQP = 28;
         encVideoParams.rcMode = RATE_CONTROL_CQP;
-        //encVideoParams.intraPeriod = -1;
+        encVideoParams.intraPeriod = -1;
 
         status = encodeSetParameters(g_sessions[index].handle, VideoParamsTypeCommon, &encVideoParams);
         if (status != 0)
