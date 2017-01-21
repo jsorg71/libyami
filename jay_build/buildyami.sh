@@ -50,6 +50,11 @@ then
   exit 1
 fi
 make
+if test $? -ne 0
+then
+  echo "error make libdrm"
+  exit 1
+fi
 make install-strip
 cd ..
 
@@ -64,6 +69,11 @@ then
   exit 1
 fi
 make
+if test $? -ne 0
+then
+  echo "error make libva"
+  exit 1
+fi
 make install-strip
 cd ..
 
@@ -78,6 +88,11 @@ then
   exit 1
 fi
 make
+if test $? -ne 0
+then
+  echo "error make libva-intel-driver"
+  exit 1
+fi
 make install-strip
 cd ..
 
@@ -98,6 +113,11 @@ then
   exit 1
 fi
 make
+if test $? -ne 0
+then
+  echo "error make libyami"
+  exit 1
+fi
 make install-strip
 cd ..
 
