@@ -44,6 +44,11 @@ rm -fr libdrm-2.4.74
 tar -zxf libdrm-2.4.74.tar.gz
 cd libdrm-2.4.74
 ./configure --prefix=$INSTALL_PATH $LIBDRM_CONFIG
+if test $? -ne 0
+then
+  echo "error configure libdrm"
+  exit 1
+fi
 make
 make install-strip
 cd ..
@@ -53,6 +58,11 @@ bunzip2 libva-1.7.3.tar.bz2
 tar -xf libva-1.7.3.tar
 cd libva-1.7.3
 ./configure --prefix=$INSTALL_PATH $LIBVA_CONFIG
+if test $? -ne 0
+then
+  echo "error configure libva"
+  exit 1
+fi
 make
 make install-strip
 cd ..
@@ -62,6 +72,11 @@ bunzip2 libva-intel-driver-1.7.3.tar.bz2
 tar -xf libva-intel-driver-1.7.3.tar
 cd libva-intel-driver-1.7.3
 ./configure --prefix=$INSTALL_PATH $LIBVA_INTER_DRIVER_CONFIG
+if test $? -ne 0
+then
+  echo "error configure libva-intel-driver"
+  exit 1
+fi
 make
 make install-strip
 cd ..
@@ -77,6 +92,11 @@ cd libyami
 git checkout 1.1.0
 ./autogen.sh
 ./configure --prefix=$INSTALL_PATH $LIBYAMI_CONFIG
+if test $? -ne 0
+then
+  echo "error configure libyami"
+  exit 1
+fi
 make
 make install-strip
 cd ..
